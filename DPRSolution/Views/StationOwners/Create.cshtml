@@ -1,0 +1,77 @@
+﻿@model DPRSolution.DTO.StationVM
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-10 mx-auto py-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+           
+            <div class="form-group">
+                <label asp-for="Firstname" class="control-label"></label>
+                <input asp-for="Firstname" class="form-control" />
+                <span asp-validation-for="Firstname" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="Lastname" class="control-label"></label>
+                <input asp-for="Lastname" class="form-control" />
+                <span asp-validation-for="Lastname" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+              <div class="form-group">
+                <label asp-for="BusinessName" class="control-label"></label>
+                <input asp-for="BusinessName" class="form-control" />
+                <span asp-validation-for="BusinessName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CompDesc" class="control-label"></label>
+                <input asp-for="CompDesc" class="form-control" />
+                <span asp-validation-for="CompDesc" class="text-danger"></span>
+            </div>
+              <div class="form-group">
+                <label asp-for="Documents" class="control-label"></label>
+                <div class="col-sm-12">
+                    <div class="custom-file">
+                <input multiple asp-for="Documents" class="form-control custom-file-input"  />
+             <label class="custom-file-label">Choose file...</label>
+                  </div>
+                </div>
+            </div>
+          
+            <div class="form-group">
+                <input type="submit" value="Submit Complaint" class="btn btn-primary" />
+            </div>
+          
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+     <script type="text/javascript">  
+        // Add the following code if you want the name of the file appear on select  
+        $(".custom-file-input").on("change", function () {  
+            var fileLabel = $(this).next('.custom-file-label'); 
+            var files = $(this)[0].files;
+            if(files.length > 1) {
+                fileLabel.html(files.length + ' Documents selected')
+            }
+            else if (files.length == 1)
+            {
+                fileLabel.html(files[0].name);
+            }
+        });  
+    </script>
+}
+
