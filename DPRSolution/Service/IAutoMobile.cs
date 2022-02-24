@@ -6,7 +6,7 @@ namespace DPRSolution.Service
 {
     public interface IAutoMobile
     {
-        Task create(AutomobileOwner automobile);
+        Task<string> create(AutomobileOwner automobile);
 
     }
 }

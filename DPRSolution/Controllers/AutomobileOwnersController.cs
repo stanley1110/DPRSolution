@@ -52,10 +52,7 @@ namespace DPRSolution.Controllers
                         string UploadFolder = Path.Combine(_hosting.WebRootPath, "img");
                         uniqueFilename = Guid.NewGuid().ToString() + "_" + document.FileName + "_" + mobileVM.Lastname;
                         string Uniquefilepath = Path.Combine(UploadFolder, uniqueFilename);
-                        if (System.IO.File.Exists(Uniquefilepath))
-                        {
-                            System.IO.File.Delete(Uniquefilepath);
-                        }
+                     
                             document.CopyTo(new FileStream(Uniquefilepath, FileMode.Create));
                         var newfile = new AutoFileDetail()
                         {
@@ -77,13 +74,24 @@ namespace DPRSolution.Controllers
                         Documents = fileDetails
 
                     };
-                    await _autoMobile.create(owner);
-                    return View();
+                    var result = await _autoMobile.create(owner);
+                    if (result == "sucess")
+                    {
+                        ViewBag.msg = String.Format("Hello {0} your complaints has been submitted successfully on {1}.\\nWe will get back to you via E-mail", mobileVM.Firstname, DateTime.Now.ToString());
+                        return View();
+                    }
+                    else
+                    {
+                        ViewBag.msg = String.Format("Error. \\nTry again later");
+                        return View();
+                    }
                 }
-               
-               
-               return RedirectToAction("Index", "Home");
+
+
+                ViewBag.msg = String.Format("Error. \\Requested documents are not complete \\nTry again");
+                return View();
             }
+            ViewBag.msg = String.Format("Error. \\Requested documents are not complete \\nTry again");
             return View();
 
         }

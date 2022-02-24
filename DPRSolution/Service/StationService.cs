@@ -1,6 +1,7 @@
 ﻿using DPRSolution.Data;
 using DPRSolution.DTO;
 using DPRSolution.Models;
+using System;
 using System.Threading.Tasks;
 
 namespace DPRSolution.Service
@@ -16,12 +17,25 @@ namespace DPRSolution.Service
      
     
 
-        public async Task create(StationOwner station)
+        public async Task<string> create(StationOwner station)
         {
-           
-                       
-            await _appDb.StationOwners.AddAsync(station);
-            await _appDb.SaveChangesAsync();
+            string result = null;
+            try
+            {
+                await _appDb.StationOwners.AddAsync(station);
+
+                await _appDb.SaveChangesAsync();
+                result = "sucess";
+            }
+            catch (Exception e)
+            {
+
+                result = e.Message;
+
+
+            }
+            return result;
+
         }
     }
 }

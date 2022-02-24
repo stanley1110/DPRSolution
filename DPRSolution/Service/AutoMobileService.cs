@@ -3,6 +3,7 @@ using DPRSolution.Data;
 using DPRSolution.DTO;
 using DPRSolution.Models;
 using DPRSolution.Models;
+using System;
 using System.Threading.Tasks;
 
 namespace DPRSolution.Service
@@ -14,11 +15,24 @@ namespace DPRSolution.Service
         {
             _appDb = appDb;
         }
-        public async Task create(AutomobileOwner  automobile)
+        public async Task<string> create(AutomobileOwner  automobile)
         {
-          
-            await _appDb.AutomobileOwners.AddAsync(automobile);
-            await _appDb.SaveChangesAsync();
+          string result = null;
+            try
+            {
+                await _appDb.AutomobileOwners.AddAsync(automobile);
+
+                await _appDb.SaveChangesAsync();
+                result = "sucess";
+            }
+            catch(Exception e)
+                {
+              
+               result = e.Message;
+
+
+            }
+            return result;  
         }
     }
 }

@@ -4,16 +4,25 @@
     ViewData["Title"] = "Create";
 }
 
-<h1><b>Create complaint</b></h1>
+ 
 
-
-<hr />
+<br />
+@if (!string.IsNullOrEmpty(ViewBag.msg))
+{
+     <script type="text/javascript">alert('@ViewBag.msg');</script>
+}
+<br />
 
 <div class="row">
     <div class="col-md-10 mx-auto py-4">
         <form asp-action="Create" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+          
            
+             <div>
+                <header class="text-center header bg-black font-weight-bolder"> <h4> Automobile Complaint Form</h4></header>
+               
+            </div>
             <div class="form-group">
                 <label asp-for="Firstname" class="control-label"></label>
                 <input asp-for="Firstname" class="form-control" />
@@ -49,10 +58,12 @@
             </div>
           
             <div class="form-group">
+                
                 <input type="submit" value="Submit Complaint" class="btn btn-primary" />
             </div>
           
         </form>
+
     </div>
 </div>
 
@@ -73,4 +84,4 @@
             }
         });  
     </script>
-}
+    }

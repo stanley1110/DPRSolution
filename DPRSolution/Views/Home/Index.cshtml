@@ -2,8 +2,10 @@
     ViewData["Title"] = "Home Page";
 }
 
+
 <div class="text-center">
     <!-- banner -->
+
     <div class="jumbotron jumbotron-fluid" id="banner" style="background-image: url(img/Dprr.jpg);">
         <div class="container text-center text-md-left">
             <header>
@@ -18,8 +20,9 @@
              DPR Complaints Page<br>
             </h5>
             <p data-aos="fade" data-aos-easing="linear" data-aos-duration="1000" data-aos-once="true" class="lead text-white my-4" b>
-                <b> Due to reported cases of contaminated petrol sold at fueling stations which damaged cars.The Department of Petroleum Resources (DPR), as the regulatory authority, 
-             is concerned and seeks to compensate car owners and retrieve contaminated fuel from affected fueling stations across the country.</b>
+                <b> Due to reported cases of contaminated petrol bought by Station owners and sold to users at fueling stations which damaged cars
+                    <br /> The Department of Petroleum Resources (DPR), as the regulatory authority, is concerned and seeks to compensate car owners,
+                    station owners and retrieve contaminated fuel from affected fueling stations across the country.</b>
             </p>
      <input type='button' onclick='window.scrollTo(0,document.body.scrollHeight);' value='Contact Us'  data-aos="fade" data-aos-easing="linear" data-aos-duration="1000" data-aos-once="true" class="btn btn-primary"/>
         </div>
@@ -39,7 +42,11 @@
                     <li>Fuel Purchase Receipt</li>
                     <li>Valid ID Card</li>
                     <li>BVN</li>
+
                 </ul>
+        
+                <p class="btn-danger">Please ensure that you name required documents<br />
+                    according to purpose correctly before upload</p>
                 <a asp-area="" asp-controller="AutomobileOwners" asp-action="Create" class="btn btn-secondary">Fill complaint form</a>
             </div>
             <div data-aos="fade-up" data-aos-duration="1000" data-aos-once="true" class="col-md-6 text-center py-4 mt-5 rounded" id="price-table__premium">
@@ -51,6 +58,8 @@
                     <li>Depot fuel Purchase receipt</li>
                     <li>Valid ID Card</li>
                 </ul>
+                 <p class="btn-danger">Please ensure that you name required documents<br />
+                    according to purpose correctly before upload</p>
                 <a asp-area="" asp-controller="StationOwners" asp-action="Create" class="btn btn-primary">Fill complaint form</a>
             </div>
           

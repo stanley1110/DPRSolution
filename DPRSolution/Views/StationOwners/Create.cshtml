@@ -2,16 +2,27 @@
 
 @{
     ViewData["Title"] = "Create";
+    
 }
 
-<h1>Create</h1>
+<br/>
+@if (!string.IsNullOrEmpty(ViewBag.msg))
+{
+     <script type="text/javascript">alert('@ViewBag.msg');</script>
+}
 
 
-<hr />
+<br />
+
+
 <div class="row">
     <div class="col-md-10 mx-auto py-4">
         <form asp-action="Create" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+              <div >
+                <header class="text-center header bg-black font-weight-bolder"> <h4> Fuel Station Form</h4></header>
+               
+            </div>
            
             <div class="form-group">
                 <label asp-for="Firstname" class="control-label"></label>

@@ -9,40 +9,53 @@
     <!-- custom.css -->
     <link rel="stylesheet" href="css/custom.css">
     <!-- bootstrap.min.css -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+  
 	<!-- font-awesome -->
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
     
     <!-- AOS -->
     <link rel="stylesheet" href="css/aos.css">
-  
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" /></head>
 
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+</head>
 
-<body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Department Of Petroleum Resources </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index"><b>Home</b></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" ><b>@DateTime.Today.Year</b></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+ <header>   
+<nav class="navbar bg-dark navbar-expand-lg navbar-dark fixed-top">
+  <a class="navbar-brand" href="#"><h5>Department of Petroleum Resources</h5> </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto bg-dark" >
+      <li class="nav-item active">
+        <a class="nav-link font-weight-bold "  asp-area="" asp-controller="Home" asp-action="Index"><h5>Home</h5> </a>
+      </li>
+     
+      <li class="nav-item dropdown"  >
+     <a class="nav-link  dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Complain
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item font-weight-bold" asp-area="" asp-controller="AutomobileOwners" asp-action="Create">Automobile</a>
+          <a class="dropdown-item font-weight-bold" asp-area="" asp-controller="StationOwners" asp-action="Create">Fuel Station</a>
+         
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"></a>
+      </li>
+    </ul>
+    <!--<form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-primary" type="submit">Search</button>
+    </form>-->
+  </div>
+</nav>
     </header>
-    <div class="container">
+    <body>
+    <div class="container-fluid">
         <main role="main" class="pb-3">
+
             @RenderBody()
         </main>
     </div>

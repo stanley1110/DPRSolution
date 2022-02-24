@@ -6,6 +6,6 @@ namespace DPRSolution.Service
 {
     public interface IFuelStation
     {
-         Task create(StationOwner   station);
+         Task<string> create(StationOwner   station);
     }
 }
